@@ -12,12 +12,7 @@ function SignIn() {
   const from = location.state?.from?.pathname || "/"
   const onSubmit = data => {
 
-        console.log(data)
-//     createUser(data.email, data.password)
-//             .then(result => {
-//                 const loggedUser = result.user;
-//                 console.log(loggedUser);
-//                  })   .catch(error => console.log(error))
+   
 
             createUser(data.email,data.password)
             .then(result =>{

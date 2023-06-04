@@ -1,18 +1,20 @@
 import React  from 'react'
  
 import { Navigate } from 'react-router-dom'
+import useAdmin from '../hook/useAdmin'
+import useAuth from '../hook/useAuth'
 
 function AdminPrivateRoute({children}) {
   const {user,loading} =useAuth()
-  
-  if(loading){
+  const [isAdmin,isAdminLoading] = useAdmin()
+  if(loading || isAdminLoading){
     return <progress className="progress w-56"></progress>
 
   }
-  if(user){
+  if(user && isAdmin){
     return children
   }
-  return  <Navigate to='/login' state={{from:location}} replace></Navigate>
+  return  <Navigate to='/' state={{from:location}} replace></Navigate>
 }
 
 export default AdminPrivateRoute

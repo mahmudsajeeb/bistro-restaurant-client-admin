@@ -2,6 +2,7 @@ import React from 'react'
 import UseCart from '../../hook/UseCart'
 // import MycartRow from './MycartRow'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 function MyCart() {
   const [cart,refetch] = UseCart()
@@ -43,7 +44,9 @@ function MyCart() {
     <div className='font-semibold h-10 items-center flex justify-between  uppercase '>
       <h1>Total Order: {cart.name}</h1>
       <p>Total Price: ${total}</p>
+      <Link to="/dashboard/payment">
       <button className='btn btn-warning btn-sm'>Pay</button>
+      </Link>
     </div>
     <div className="overflow-x-auto w-full">
   <table className="table w-full">
